@@ -1,0 +1,42 @@
+version: "3"
+services:
+
+  nginx:
+    image: nginx:latest
+    ports:
+        - '3000:80'
+    volumes:
+        - ./logs/access.log:/var/log/nginx/access.log
+        - ./logs/error.log:/var/log/nginx/error.log
+        - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        - ./public:/myapps
+    links:
+        - phpfpm
+  
+  phpfpm:
+    image: php:7-fpm
+    ports:
+        - '9000:9000'
+    volumes:
+        - ./public:/myapps
+
+  mysql:
+    image: mariadb
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./db-data:/var/lib/mysql
+    environment: 
+      - MYSQL_ROOT_PASSWORD=Passw0rd1
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+       - '9092:80'
+    links:
+        - mysql:mysql
+    environment:
+        MYSQL_USERNAME: root
+        MYSQL_ROOT_PASSWORD: Passw0rd1
+        PMA_HOST: mysql

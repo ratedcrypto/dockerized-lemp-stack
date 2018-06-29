@@ -1,0 +1,1 @@
+2018/06/29 06:31:41 [emerg] 1#1: open() "/etc/nginx/fastcgi.conf" failed (2: No such file or directory) in /etc/nginx/conf.d/default.conf:20
