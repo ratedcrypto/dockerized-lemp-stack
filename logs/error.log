@@ -1,1 +1,4 @@
 2018/06/29 06:31:41 [emerg] 1#1: open() "/etc/nginx/fastcgi.conf" failed (2: No such file or directory) in /etc/nginx/conf.d/default.conf:20
+2018/07/02 00:51:18 [error] 5#5: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.20.0.1, server: php-docker.local, request: "GET / HTTP/1.1", upstream: "fastcgi://172.20.0.3:9000", host: "localhost:3000"
+2018/07/02 02:16:47 [error] 5#5: *1 directory index of "/myapps/" is forbidden, client: 172.20.0.1, server: php-docker.local, request: "GET / HTTP/1.1", host: "localhost:3000"
+2018/07/02 02:17:03 [error] 5#5: *1 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 172.20.0.1, server: php-docker.local, request: "GET /hello-php/ HTTP/1.1", upstream: "fastcgi://172.20.0.3:9000", host: "localhost:3000"

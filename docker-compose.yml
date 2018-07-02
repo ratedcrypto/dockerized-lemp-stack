@@ -14,7 +14,10 @@ services:
         - phpfpm
   
   phpfpm:
-    image: php:7-fpm
+    build: 
+        context: ./dockerfiles
+        dockerfile: php.docker
+    image: php-app-on-docker:latest
     ports:
         - '9000:9000'
     volumes:
